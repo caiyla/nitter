@@ -70,6 +70,6 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/nitter:${{ matrix.image.tag-main }}
-            ${{ secrets.DOCKER_USERNAME }}/nitter:${{ matrix.image.tag-alt }}
+            ghcr.io/${{ env.IMAGE_NAME }}:${{ matrix.image.tag-main }}
+            ghcr.io/${{ env.IMAGE_NAME }}:${{ matrix.image.tag-alt }}
             
