@@ -1,7 +1,10 @@
 # SPDX-License-Identifier: AGPL-3.0-only
 import asyncdispatch, strformat, logging
+import config
 from net import Port
 from htmlgen import a
+from os import getEnv
+from json import parseJson
 
 import jester
 
@@ -13,6 +16,12 @@ import routes/[
 
 const instancesUrl = "https://github.com/zedeus/nitter/wiki/Instances"
 const issuesUrl = "https://github.com/zedeus/nitter/issues"
+
+let
+  accountsPath = getEnv("NITTER_ACCOUNTS_FILE", "./guest_accounts.json")
+  accounts = parseJson(readFile(accountsPath))
+
+initAccountPool(cfg, parseJson(readFile(accountsPath)))
 
 if not cfg.enableDebug:
   # Silence Jester's query warning
@@ -33,8 +42,6 @@ initAboutPage(cfg.staticDir)
 waitFor initRedisPool(cfg)
 stdout.write &"Connected to Redis at {cfg.redisHost}:{cfg.redisPort}\n"
 stdout.flushFile
-
-asyncCheck initTokenPool(cfg)
 
 createUnsupportedRouter(cfg)
 createResolverRouter(cfg)
@@ -83,7 +90,7 @@ routes:
 
   error BadClientError:
     echo error.exc.name, ": ", error.exc.msg
-    resp Http500, showError("Network error occured, please try again.", cfg)
+    resp Http500, showError("Network error occurred, please try again.", cfg)
 
   error RateLimitError:
     const link = a("another instance", href = instancesUrl)

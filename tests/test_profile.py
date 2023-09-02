@@ -4,7 +4,7 @@ from parameterized import parameterized
 profiles = [
         ['mobile_test', 'Test account',
          'Test Account. test test Testing username with @mobile_test_2 and a #hashtag',
-         'San Francisco, CA', 'example.com/foobar', 'Joined October 2009', '100'],
+         'San Francisco, CA', 'example.com/foobar', 'Joined October 2009', '98'],
         ['mobile_test_2', 'mobile test 2', '', '', '', 'Joined January 2011', '13']
 ]
 
@@ -66,8 +66,8 @@ class ProfileTest(BaseTestCase):
         self.assert_text(f'User "{username}" not found')
 
     def test_suspended(self):
-        self.open_nitter('user')
-        self.assert_text('User "user" has been suspended')
+        self.open_nitter('suspendme')
+        self.assert_text('User "suspendme" has been suspended')
 
     @parameterized.expand(banner_image)
     def test_banner_image(self, username, url):

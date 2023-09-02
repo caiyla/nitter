@@ -14,7 +14,7 @@ poll = [
 
 image = [
     ['mobile_test/status/519364660823207936', 'BzUnaDFCUAAmrjs'],
-    ['mobile_test_2/status/324619691039543297', 'BIFH45vCUAAQecj']
+    #['mobile_test_2/status/324619691039543297', 'BIFH45vCUAAQecj']
 ]
 
 gif = [
@@ -28,14 +28,14 @@ video_m3u8 = [
 ]
 
 gallery = [
-    ['mobile_test/status/451108446603980803', [
-        ['BkKovdrCUAAEz79', 'BkKovdcCEAAfoBO']
-    ]],
+    # ['mobile_test/status/451108446603980803', [
+    #     ['BkKovdrCUAAEz79', 'BkKovdcCEAAfoBO']
+    # ]],
 
-    ['mobile_test/status/471539824713691137', [
-        ['Bos--KNIQAAA7Li', 'Bos--FAIAAAWpah'],
-        ['Bos--IqIQAAav23']
-    ]],
+    # ['mobile_test/status/471539824713691137', [
+    #     ['Bos--KNIQAAA7Li', 'Bos--FAIAAAWpah'],
+    #     ['Bos--IqIQAAav23']
+    # ]],
 
     ['mobile_test/status/469530783384743936', [
         ['BoQbwJAIUAA0QCY', 'BoQbwN1IMAAuTiP'],
